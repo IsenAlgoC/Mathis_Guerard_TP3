@@ -18,5 +18,13 @@
     <ClCompile Include="Exo.c">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="fct.c">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="fct.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

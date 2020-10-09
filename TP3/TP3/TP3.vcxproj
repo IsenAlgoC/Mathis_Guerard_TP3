@@ -140,6 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Exo.c" />
+    <ClCompile Include="fct.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="fct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

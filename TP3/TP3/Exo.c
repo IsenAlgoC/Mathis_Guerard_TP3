@@ -4,6 +4,7 @@
 #include <conio.h>
 #include <ctype.h>
 #include <stdbool.h>
+#include "fct.h"
 #define carre(x) (x) * (x)
 #define NBMAXNOTES 30
 
@@ -47,6 +48,8 @@ void main() {
 	float min = 20;
 	float ecart = 0;
 	float ecartType = 0;
+	float copienote[NBMAXNOTES] = { 0 };
+	int index[NBMAXNOTES] = { 0 };
 	bool arret = false;
 	float note[NBMAXNOTES];
 
@@ -109,15 +112,21 @@ void main() {
 
 	//on trie le tableau de notes dans l'ordre décroissant
 	//tri à bulles
-	float copienote[NBMAXNOTES] = { 0 };
-	int index[NBMAXNOTES] = { 0 };
-	for (int i = 0; i < NBMAXNOTES; i++) {
+	for (int i = 0; i < NBMAXNOTES; i++) {		//création de tableau annexe (copie)
 		if (note[i] >= 0) {
 			copienote[i] = note[i];
 			index[i] = i;
 		}
 	}
-
+	for (int i = 1; i <= NBMAXNOTES; i++) {		//permutation
+		while (copienote[i - 1] > copienote[i]) {
+			copienote[i-1], copienote[i] = permutation(copienote[i - 1], copienote[i]);
+			index[i-1], index[i] = permutation((float)(index[i - 1]), (float)index[i]);
+		}
+	}
+	for (int i = 0; i < NBMAXNOTES; i++) {		//afficher le tableau de notes
+		printf("\n\n%.2f  : position : %d", copienote[i], index[i]);
+	}
 
 	printf("\n\n");
 	system("pause");
